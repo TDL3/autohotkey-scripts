@@ -14,7 +14,6 @@ DownloadVideo() {
         Return
     }
     RemoveTooltip:
-        SetTimer, RemoveTooltip, Off
         Tooltip
     Return
 }
