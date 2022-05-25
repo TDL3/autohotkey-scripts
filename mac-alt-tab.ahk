@@ -1,9 +1,10 @@
 #NoEnv
 #Warn 
 #SingleInstance, Force
+SendMode Input
 Menu, Tray, Icon, pifmgr.dll, 2
 
 LControl & Tab::AltTab
 
-LControl & Space::
+^Space::
 Send {LWin down}{Space}{LWin up}
