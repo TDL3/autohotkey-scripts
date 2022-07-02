@@ -1,40 +1,20 @@
-#NoEnv
-#Warn 
-#SingleInstance, Force
-SendMode Input
-Menu, Tray, Icon, pifmgr.dll, 2
+#Requires AutoHotkey v2.0-beta
 
+#HotIf WinActive("ahk_exe chrome.exe")
+LControl & Tab::Return
+#Hotif WinActive("ahk_exe vmware.exe")
+LControl & Tab::Return
+#HotIf
 LControl & Tab::AltTab
 
-; Win up is mandatory, otherwish windows key would stuck on down state, and causes all sorts of headaches
-#IfWinNotActive ahk_exe FSD-Win64-Shipping.exe
-^Space::
-Send {LWin down}{Space}{LWin up}
-Return
+HotIfWinNotActive "ahk_exe FSD-Win64-Shipping.exe"
+Hotkey "^space", ChangeIME
 
-; ctrl shift space if deep rock galactic is in focus
-#IfWinActive ahk_exe FSD-Win64-Shipping.exe
-<^<+Space::
-Send {LWin down}{Space}{LWin up}
-Return
+HotIfWinActive "ahk_exe FSD-Win64-Shipping.exe"
+Hotkey "^+space", ChangeIME
 
-; Rectangle key mapping
-#IfWinNotActive ahk_exe FSD-Win64-Shipping.exe
-<^<!Right::
-Send {LWin down}{Right}{LWin up}
-Return
+ChangeIME(ThisHotKey) {
+	; MsgBox ThisHotKey
+	Send "{LWin down}{Space}{LWin up}"
+}
 
-#IfWinNotActive ahk_exe FSD-Win64-Shipping.exe
-<^<!Left::
-Send {LWin down}{Left}{LWin up}
-Return
-
-#IfWinNotActive ahk_exe FSD-Win64-Shipping.exe
-<^<!Enter::
-Send {LWin down}{Up}{LWin up}
-Return
-
-#IfWinNotActive ahk_exe FSD-Win64-Shipping.exe
-<^<!Backspace::
-Send {LWin down}{Down}{LWin up}
-Return
