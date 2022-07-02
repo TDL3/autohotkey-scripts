@@ -1,4 +1,5 @@
 #Requires AutoHotkey v2.0-beta
+TraySetIcon("pifmgr.dll", 32)
 
 #HotIf WinActive("ahk_exe chrome.exe")
 LControl & Tab::Return
