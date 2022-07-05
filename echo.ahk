@@ -1,9 +1,5 @@
-#NoEnv
-#Warn 
-#SingleInstance, Force
-SendMode Input
-SetWorkingDir, %A_ScriptDir%
-
+Requires AutoHotkey v2.0-beta
 ; This solves some programs don't allow you to copy pasting things(passwords, etc)
-^V::
-Send %Clipboard%
+^V:: {
+	Send A_Clipboard	
+}

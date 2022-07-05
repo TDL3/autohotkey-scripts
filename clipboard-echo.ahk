@@ -1,17 +1,9 @@
-﻿#NoEnv 
-#Warn 
-SendMode Input 
-SetWorkingDir %A_ScriptDir%
-Menu, Tray, Icon, pifmgr.dll, 13
+﻿Requires AutoHotkey v2.0-beta
+TraySetIcon("pifmgr.dll", 13)
 
-#Persistent
-OnClipboardChange("ClipboardChanged")
-ClipboardChanged() {
-    ToolTip, %Clipboard%
-        SetTimer, RemoveToolTip, 1000
-    return
+OnClipboardChange ClipboardChanged
 
-    RemoveToolTip:
-        ToolTip
-    return
+ClipboardChanged(clip_type) {
+	ToolTip A_Clipboard
+    SetTimer () => ToolTip(), 5000
 }
