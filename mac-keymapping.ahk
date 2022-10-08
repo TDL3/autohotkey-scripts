@@ -10,6 +10,10 @@ GroupAdd "MyGroup", "ahk_exe csgo.exe"
 #HotIf not WinActive("ahk_group MyGroup")
 ^space::Send "{LWin down}{Space}{LWin up}"
 
+#HotIf WinActive("ahk_exe godot.windows.opt.tools.64.exe")
+^[::NumpadHome
+^]::NumpadEnd
+
 
 ; Universal shotcuts
 $!x::Send "^x"
@@ -22,6 +26,8 @@ $!+z::Send "^y"
 $!w::Send "^w"
 $!f::Send "^f"
 $!n::Send "^n"
+$!t::Send "^t"
+$!k::Send "^k"
 $!q::Send "!{f4}"
 $!r::Send "^{f5}"
 $!m::Send "{LWin Down}{Down}{LWin Up}"
@@ -46,8 +52,6 @@ $!Right::Send "{End}"
 $!Up::Send "{Lctrl down}{Home}{Lctrl up}"
 $!Down::Send "{Lctrl down}{End}{Lctrl up}"
 
-$#Left::Send "{ctrl down}{Left}{ctrl up}"
-$#Right::Send "{ctrl down}{Right}{ctrl up}"
 $#+Left::Send "{ctrl down}{shift down}{Left}{shift up}{ctrl up}"
 $#+Right::Send "{ctrl down}{shift down}{Right}{shift up}{ctrl up}"
 
